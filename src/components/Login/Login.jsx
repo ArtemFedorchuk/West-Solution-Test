@@ -19,13 +19,14 @@ import LoginStyles from './LoginStyles';
 const useStyles = makeStyles(LoginStyles);
 
 const Login = ({
+    sendAuth,
     userName,
     password
 }) => {
     const classes = useStyles();
 
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
+    const [loginForm, setLogin] = useState('');
+    const [passwordForm, setPassword] = useState('');
 
     const loginHandler = (e) => {
         setLogin(e.currentTarget.value)
