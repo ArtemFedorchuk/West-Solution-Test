@@ -1,11 +1,10 @@
 const SET_USER_DATA = "SET_USER_DATA";
 
-const InitialState = [
+const InitialState =
     {
         userName: 'admin',
         password: '12345',
-    }
-];
+    };
 
 const loginReducer = (state = InitialState, action) => {
         switch (action.type) {

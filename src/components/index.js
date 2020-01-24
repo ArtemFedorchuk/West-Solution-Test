@@ -7,7 +7,6 @@ import Header from './Header/Header';
 import Profile from './Profile/Profile';
 import Home from "./Home/Home";
 import News from "./News/News";
-import LoginContainer from "./Login/LoginContainer";
 
 export {
     Container,
@@ -19,5 +18,4 @@ export {
     Profile,
     Home,
     News,
-    LoginContainer,
 }

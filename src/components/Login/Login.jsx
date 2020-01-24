@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import {
     Button,
@@ -18,8 +19,8 @@ import LoginStyles from './LoginStyles';
 const useStyles = makeStyles(LoginStyles);
 
 const Login = ({
-     onChangeText,
-     sendAuth,
+    userName,
+    password
 }) => {
     const classes = useStyles();
 
@@ -125,4 +126,11 @@ const Login = ({
     );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        userName: state.auth.userName,
+        password: state.auth.password,
+    }
+};
+
+export default connect(mapStateToProps, {})(Login);

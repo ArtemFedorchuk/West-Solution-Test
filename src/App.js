@@ -7,7 +7,7 @@ import './App.css';
 
 import {
     Categories,
-    LoginContainer
+    Login
 } from "./components";
 
 const App = () => {
@@ -15,8 +15,8 @@ const App = () => {
       <div className="App">
           <Switch>
               <Route path={Routes.CATEGORIES} component={Categories} />
-              <Route path={Routes.INDEX} component={LoginContainer} />
-              <Route path={Routes.LOGIN} component={LoginContainer} />
+              <Route path={Routes.INDEX} component={Login} />
+              <Route path={Routes.LOGIN} component={Login} />
           </Switch>
       </div>
   );
