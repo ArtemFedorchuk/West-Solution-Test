@@ -1,5 +1,4 @@
 const SET_USER_DATA = "SET_USER_DATA";
-const PASSWORD = "PASSWORD";
 
 const InitialState = [
     {
@@ -8,9 +7,10 @@ const InitialState = [
     }
 ];
 
-const loginReducer = (state = InitialState ,action) => {
+const loginReducer = (state = InitialState, action) => {
         switch (action.type) {
             case SET_USER_DATA:
+                debugger
                 return {
                     ...state,
                     ...action.data

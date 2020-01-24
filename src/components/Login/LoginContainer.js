@@ -8,15 +8,15 @@ let onChangeText = (e) => {
     console.log(e.currentTarget.value)
 };
 
-let sendAuth = () => {
-    setAuthUserData()
-};
+// let sendAuth = () => {
+//     setAuthUserData()
+// };
 
 const LoginContainer = (props) => {
     return  (
         <Login
             onChangeText={onChangeText}
-            sendAuth={sendAuth}
+            // sendAuth={sendAuth}
         />
     )
 };
@@ -29,13 +29,10 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        sendAuth: () => {
-            dispatch(setAuthUserData())
-        }
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
-// export default LoginContainer;
+export default connect(mapStateToProps, {})(LoginContainer);
+// const InitialState = [
+//     {
+//         userName: 'admin',
+//         password: '12345',
+//     }
+// ];

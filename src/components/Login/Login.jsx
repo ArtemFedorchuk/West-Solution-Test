@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -20,10 +20,21 @@ const useStyles = makeStyles(LoginStyles);
 const Login = ({
      onChangeText,
      sendAuth,
-     userName,
-     password,
 }) => {
     const classes = useStyles();
+
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+
+    const loginHandler = (e) => {
+        setLogin(e.currentTarget.value)
+    };
+    const passwordHandler = (e) => {
+        setPassword(e.currentTarget.value)
+    };
+
+    console.log('LOGIN =>', login);
+    console.log('PASSWORD =>', password);
 
     return (
         <Container component="main" maxWidth="xs">
@@ -44,7 +55,7 @@ const Login = ({
                             autoComplete="name"
                             autoFocus
                             placeholder="Enter user name"
-                            onChange={onChangeText}
+                            onChange={loginHandler}
                         />
                         <TextField
                             variant="outlined"
@@ -56,10 +67,9 @@ const Login = ({
                             id="password"
                             autoComplete="current-password"
                             placeholder="Enter password"
-                            onChange={onChangeText}
+                            onChange={passwordHandler}
                         />
                         <Button
-                            type="submit"
                             fullWidth
                             variant="contained"
                             color="primary"
@@ -76,7 +86,7 @@ const Login = ({
                         </Row>
                         <div>
                             <Button
-                                type="submit"
+                                // type="submit"
                                 fullWidth
                                 variant="contained"
                                 color="secondary"
@@ -88,7 +98,7 @@ const Login = ({
 
                         <div>
                             <Button
-                                type="submit"
+                                // type="submit"
                                 fullWidth
                                 variant="contained"
                                 className={classes.submitFacebook}
