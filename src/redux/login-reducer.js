@@ -4,6 +4,7 @@ const InitialState =
     {
         userName: 'admin',
         password: '12345',
+        isAuth: false
     };
 
 const loginReducer = (state = InitialState, action) => {

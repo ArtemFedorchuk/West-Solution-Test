@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {
@@ -15,11 +15,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Row, Column } from '../../components';
 
 import LoginStyles from './LoginStyles';
+import Routes from "../../constants/routes";
 
 const useStyles = makeStyles(LoginStyles);
 
 const Login = ({
-    sendAuth,
+    isAuth,
     userName,
     password
 }) => {
@@ -27,6 +28,7 @@ const Login = ({
 
     const [loginForm, setLogin] = useState('');
     const [passwordForm, setPassword] = useState('');
+    const [isAuthUser, setAuth] = useState(isAuth);
 
     const loginHandler = (e) => {
         setLogin(e.currentTarget.value)
@@ -34,6 +36,11 @@ const Login = ({
     const passwordHandler = (e) => {
         setPassword(e.currentTarget.value)
     };
+    const authUserHandler = () => {
+        setAuth(true)
+    };
+
+    if(userName === loginForm && password === passwordForm && isAuthUser === true) return <Redirect to={Routes.PROFILE} />;
 
     return (
         <Container component="main" maxWidth="xs">
@@ -73,7 +80,7 @@ const Login = ({
                             variant="contained"
                             color="primary"
                             className={classes.signIn}
-                            onClick={sendAuth}
+                            onClick={authUserHandler}
                         >
                             Sign In
                         </Button>
@@ -131,6 +138,7 @@ const mapStateToProps = (state) => {
     return {
         userName: state.auth.userName,
         password: state.auth.password,
+        isAuth: state.auth.isAuth
     }
 };
 
