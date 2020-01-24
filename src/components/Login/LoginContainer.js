@@ -22,7 +22,7 @@ const LoginContainer = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    // debugger
+    debugger
     return {
         userName: state.userName,
         password: state.password,

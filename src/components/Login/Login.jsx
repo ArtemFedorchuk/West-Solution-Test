@@ -33,9 +33,6 @@ const Login = ({
         setPassword(e.currentTarget.value)
     };
 
-    console.log('LOGIN =>', login);
-    console.log('PASSWORD =>', password);
-
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
