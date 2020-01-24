@@ -1,27 +1,25 @@
-const LOGIN = "LOGIN";
+const SET_USER_DATA = "SET_USER_DATA";
 const PASSWORD = "PASSWORD";
 
 const InitialState = [
     {
-        user: {
-            userName: 'admin',
-            password: '12345',
-        }
+        userName: 'admin',
+        password: '12345',
     }
 ];
 
 const loginReducer = (state = InitialState ,action) => {
         switch (action.type) {
-            case LOGIN:
-                state.userName = '';
-                return state;
-            case PASSWORD:
-                state.password = '';
-                return state;
+            case SET_USER_DATA:
+                return {
+                    ...state,
+                    ...action.data
+                };
             default:
                 return state;
         }
 };
 
-export const sendUserCreator = () => ({type: LOGIN});
+export const setAuthUserData = (userName, password) => ({type: SET_USER_DATA, data: {userName, password}});
+
 export default loginReducer;

@@ -17,7 +17,12 @@ import LoginStyles from './LoginStyles';
 
 const useStyles = makeStyles(LoginStyles);
 
-const Login = ({focusHandler, ...rest}) => {
+const Login = ({
+     onChangeText,
+     sendAuth,
+     userName,
+     password,
+}) => {
     const classes = useStyles();
 
     return (
@@ -39,9 +44,7 @@ const Login = ({focusHandler, ...rest}) => {
                             autoComplete="name"
                             autoFocus
                             placeholder="Enter user name"
-                            onFocus={focusHandler}
-                            // onChange={rest.updateUserHandler}
-                            // onChange={e => console.log('name => ', e.currentTarget.value)}
+                            onChange={onChangeText}
                         />
                         <TextField
                             variant="outlined"
@@ -53,8 +56,7 @@ const Login = ({focusHandler, ...rest}) => {
                             id="password"
                             autoComplete="current-password"
                             placeholder="Enter password"
-                            // onChange={rest.updateUserHandler}
-                            // onChange={e => console.log('password => ', e.currentTarget.value)}
+                            onChange={onChangeText}
                         />
                         <Button
                             type="submit"
@@ -62,6 +64,7 @@ const Login = ({focusHandler, ...rest}) => {
                             variant="contained"
                             color="primary"
                             className={classes.signIn}
+                            onClick={sendAuth}
                         >
                             Sign In
                         </Button>

@@ -3,7 +3,7 @@ import loginReducer from "./login-reducer";
 import { reducer as formReducer } from 'redux-form'
 
 const reducers = combineReducers({
-    loginPage: loginReducer,
+    auth: loginReducer,
     form: formReducer
 });
 
