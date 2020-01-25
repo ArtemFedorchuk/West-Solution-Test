@@ -38,12 +38,18 @@ const News = (props) => {
                     {news ?
                         news.map((items, i) => (
                             <div key={i} className={classes.newsWrapper}>
-                               <h4>{items.title}</h4>
-                                <p>{items.description}</p><br/>
+                               <h4 className={classes.title}>{items.title}</h4>
+                                <p className={classes.description}>{items.description}</p><br/>
                                 <div>
                                     <img className={classes.images} src={items.urlToImage} alt="img"/>
                                 </div>
-                                {items.author}
+                                <p>Author:
+                                    <span className={classes.authorPost}>
+                                        {items.author}
+                                     </span>
+                                </p>
+                                <div className={classes.line}>
+                                </div>
                             </div>
                         ))
                         : (<CircularProgress color="secondary" />)}
