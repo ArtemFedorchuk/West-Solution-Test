@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-// import {useFormik} from "formik";
-// import * as yup from "yup";
-
+import Alert from '@material-ui/lab/Alert';
 import {
     Button,
     CssBaseline,
@@ -22,27 +20,12 @@ import Routes from "../../constants/routes";
 
 const useStyles = makeStyles(LoginStyles);
 
-// const validator = yup.object().shape({
-//     email: yup
-//         .string()
-//         .email()
-//         .required(),
-//     password: yup.string().required(),
-// });
-
 const Login = ({
     isAuth,
     userName,
     password
 }) => {
     const classes = useStyles();
-    // const formik = useFormik({
-    //     initialValues: {
-    //         email: '',
-    //         password: '',
-    //     },
-    //     validationSchema: validator,
-    // });
 
     const [loginForm, setLogin] = useState('');
     const [passwordForm, setPassword] = useState('');
@@ -58,10 +41,20 @@ const Login = ({
         setAuth(true)
     };
 
-    if(userName === loginForm && password === passwordForm && isAuthUser === true) return <Redirect to={Routes.PROFILE} />;
+    if(userName === loginForm && password === passwordForm && isAuthUser) return <Redirect to={Routes.PROFILE} />;
 
     return (
         <Container component="main" maxWidth="xs">
+            {isAuthUser ?
+                userName === loginForm && password === passwordForm ? null
+                    : (
+                        <Alert variant="filled" severity="error" className={classes.alert}>
+                            Error, login or password!
+                        </Alert>
+                    )
+                :
+                null
+            }
             <CssBaseline />
             <div className={classes.paper}>
                 <Card className={classes.card}>
@@ -75,12 +68,12 @@ const Login = ({
                             required
                             fullWidth
                             id="name"
-                            name="name"
+                            name="firstName"
+                            type="text"
                             autoComplete="name"
                             autoFocus
                             placeholder="Enter user name"
                             onChange={loginHandler}
-                            // value={formik.values.email}
                         />
                         <TextField
                             variant="outlined"
@@ -93,8 +86,6 @@ const Login = ({
                             autoComplete="current-password"
                             placeholder="Enter password"
                             onChange={passwordHandler}
-                            // value={formik.values.password}
-
                         />
                         <Button
                             fullWidth

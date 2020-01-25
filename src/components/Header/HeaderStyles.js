@@ -36,6 +36,10 @@ export default theme => ({
         [theme.breakpoints.up('xl')]: {
         },
     },
+    headerBtn: {
+        height: 35,
+        width: 35,
+    },
     wrapperSearch: {
         display: 'flex',
         alignItems: 'center',

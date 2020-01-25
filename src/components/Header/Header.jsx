@@ -9,7 +9,7 @@ import {
 
 import SearchIcon from '@material-ui/icons/Search';
 import PublicIcon from '@material-ui/icons/Public';
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import HomeIcon from '@material-ui/icons/Home';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
@@ -60,12 +60,13 @@ const Header = () => {
                         <div className={classes.sectionDesktop}>
                             <Link to={Routes.PROFILE} className={classes.activeLink}>
                                 <IconButton color="inherit">
-                                    <AccessibilityNewIcon />
+                                    <EmojiPeopleIcon className={classes.headerBtn} />
                                 </IconButton>
                             </Link>
                             <Link to={Routes.NEWS} className={classes.activeLink}>
                                 <IconButton color="inherit">
-                                    <PublicIcon />
+                                    <PublicIcon className={classes.headerBtn} />
+                                    <span>News</span>
                                 </IconButton>
                             </Link>
                             <Link to={Routes.CATEGORIES} className={classes.activeLink}>
@@ -75,6 +76,7 @@ const Header = () => {
                             </Link>
                             <Link to={Routes.PROFILE} className={classes.activeLink}>
                                 <IconButton edge="end" color="inherit">
+                                    <span>Profile</span>
                                     <Avatar src={ava} />
                                 </IconButton>
                             </Link>

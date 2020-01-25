@@ -69,4 +69,8 @@ export default theme => ({
   activeLink: {
     color: '#1976D2',
   },
+  alert: {
+   position: 'absolute',
+    top: 10,
+  }
 });
