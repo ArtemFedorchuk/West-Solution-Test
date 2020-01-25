@@ -1,7 +1,6 @@
 import React from 'react';
 
 import makeStyles from '@material-ui/core/styles/makeStyles';
-
 import {
     Header,
     Container,
@@ -9,7 +8,8 @@ import {
     Column,
     Profile,
     Home,
-    News
+    News,
+    ErrorPage
 } from '../../components';
 
 import CategoriesStyles from './CategoriesStyles';
@@ -32,8 +32,9 @@ const Categories = () => {
                             <Route exact path={Routes.NEWS} component={News} />
                             <Route exact path={Routes.PROFILE} component={Profile} />
                             <Route exact path={Routes.HOME} component={Home} />
+                            <Route  render={() => <ErrorPage />} />
                         </Switch>
-                        </Column>
+                    </Column>
                 </Row>
             </Container>
         </>

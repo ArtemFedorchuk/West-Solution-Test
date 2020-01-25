@@ -73,7 +73,7 @@ const Header = () => {
                                     <NotificationsIcon />
                                 </IconButton>
                             </Link>
-                            <Link to={Routes.LOGIN} className={classes.activeLink}>
+                            <Link to={Routes.PROFILE} className={classes.activeLink}>
                                 <IconButton edge="end" color="inherit">
                                     <Avatar src={ava} />
                                 </IconButton>

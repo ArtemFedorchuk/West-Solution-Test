@@ -7,6 +7,7 @@ import './App.css';
 
 import {
     Categories,
+    ErrorPage,
     Login
 } from "./components";
 
@@ -15,8 +16,9 @@ const App = () => {
       <div className="App">
           <Switch>
               <Route path={Routes.CATEGORIES} component={Categories} />
-              <Route path={Routes.INDEX} component={Login} />
-              <Route path={Routes.LOGIN} component={Login} />
+              <Route exact path={Routes.INDEX} component={Login} />
+              <Route exact path={Routes.LOGIN} component={Login} />
+              <Route  render={() => <ErrorPage />} />
           </Switch>
       </div>
   );

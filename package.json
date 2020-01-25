@@ -16,7 +16,8 @@
     "react-scripts": "3.3.0",
     "react.dom": "^1.0.1",
     "redux": "^4.0.5",
-    "redux-form": "^8.2.6"
+    "redux-form": "^8.2.6",
+    "yup": "^0.28.0"
   },
   "scripts": {
     "start": "react-scripts start",

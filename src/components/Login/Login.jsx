@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+// import {useFormik} from "formik";
+// import * as yup from "yup";
+
 import {
     Button,
     CssBaseline,
@@ -19,12 +22,27 @@ import Routes from "../../constants/routes";
 
 const useStyles = makeStyles(LoginStyles);
 
+// const validator = yup.object().shape({
+//     email: yup
+//         .string()
+//         .email()
+//         .required(),
+//     password: yup.string().required(),
+// });
+
 const Login = ({
     isAuth,
     userName,
     password
 }) => {
     const classes = useStyles();
+    // const formik = useFormik({
+    //     initialValues: {
+    //         email: '',
+    //         password: '',
+    //     },
+    //     validationSchema: validator,
+    // });
 
     const [loginForm, setLogin] = useState('');
     const [passwordForm, setPassword] = useState('');
@@ -62,6 +80,7 @@ const Login = ({
                             autoFocus
                             placeholder="Enter user name"
                             onChange={loginHandler}
+                            // value={formik.values.email}
                         />
                         <TextField
                             variant="outlined"
@@ -74,6 +93,8 @@ const Login = ({
                             autoComplete="current-password"
                             placeholder="Enter password"
                             onChange={passwordHandler}
+                            // value={formik.values.password}
+
                         />
                         <Button
                             fullWidth
