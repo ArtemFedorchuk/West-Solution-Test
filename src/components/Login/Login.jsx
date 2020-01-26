@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -17,6 +17,7 @@ import { Container, Row, Column } from '../../components';
 
 import LoginStyles from './LoginStyles';
 import Routes from "../../constants/routes";
+import {isObject} from "formik";
 
 const useStyles = makeStyles(LoginStyles);
 
@@ -30,6 +31,15 @@ const Login = ({
     const [loginForm, setLogin] = useState('');
     const [passwordForm, setPassword] = useState('');
     const [isAuthUser, setAuth] = useState(isAuth);
+    const [isAlert, setAlert] = useState(false);
+
+    function alertModal() {
+        return <Alert variant="filled" severity="error" className={classes.alert}>Error, login or password! </Alert>
+    }
+
+    useEffect(() => {
+        setTimeout(() =>  setAlert(false), 6000);
+    });
 
     const loginHandler = (e) => {
         setLogin(e.currentTarget.value)
@@ -40,17 +50,18 @@ const Login = ({
     const authUserHandler = () => {
         setAuth(true)
     };
+    const handlerAlert = () => {
+        setAlert(alertModal)
+    };
 
     if(userName === loginForm && password === passwordForm && isAuthUser) return <Redirect to={Routes.PROFILE} />;
 
     return (
         <Container component="main" maxWidth="xs">
             {isAuthUser ?
-                userName === loginForm && password === passwordForm ? null
+                userName === loginForm && password === passwordForm ? null``
                     : (
-                        <Alert variant="filled" severity="error" className={classes.alert}>
-                            Error, login or password!
-                        </Alert>
+                        isAlert
                     )
                 :
                 null
@@ -92,7 +103,7 @@ const Login = ({
                             variant="contained"
                             color="primary"
                             className={classes.signIn}
-                            onClick={authUserHandler}
+                            onClick={() => `${authUserHandler()} ${handlerAlert()}`}
                         >
                             Sign In
                         </Button>

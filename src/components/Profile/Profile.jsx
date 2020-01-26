@@ -8,7 +8,7 @@ const Profile = ({
        password
        }) => {
 
-  if(userName && password) return <Redirect to={Routes.PROFILE} />;
+  if(!userName && !password) return <Redirect to={Routes.PROFILE} />;
 
   return(
         <div>

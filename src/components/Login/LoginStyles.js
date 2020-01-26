@@ -72,5 +72,5 @@ export default theme => ({
   alert: {
    position: 'absolute',
     top: 10,
-  }
+  },
 });
