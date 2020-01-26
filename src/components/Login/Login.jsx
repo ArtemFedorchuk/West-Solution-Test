@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import Alert from '@material-ui/lab/Alert';
@@ -17,7 +18,6 @@ import { Container, Row, Column } from '../../components';
 
 import LoginStyles from './LoginStyles';
 import Routes from "../../constants/routes";
-import {isObject} from "formik";
 
 const useStyles = makeStyles(LoginStyles);
 
@@ -113,7 +113,7 @@ const Login = ({
                                 <span className={classes.or}>OR</span>
                             </Column>
                         </Row>
-                        <div>
+                        <>
                             <Button
                                 // type="submit"
                                 fullWidth
@@ -123,9 +123,9 @@ const Login = ({
                             >
                                 Sign in with Google
                             </Button>
-                        </div>
+                        </>
 
-                        <div>
+                        <>
                             <Button
                                 // type="submit"
                                 fullWidth
@@ -134,7 +134,7 @@ const Login = ({
                             >
                                 Sign in with Facebook
                             </Button>
-                        </div>
+                        </>
 
                         <div className={classes.line} />
 
@@ -166,3 +166,15 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {})(Login);
+
+Login.propTypes = {
+    isAuth: PropTypes.bool,
+    userName: PropTypes.string,
+    password: PropTypes.string
+};
+
+Login.defaultProps = {
+    isAuth: false,
+    userName: 'admin',
+    password: '12345',
+};
