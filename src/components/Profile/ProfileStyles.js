@@ -5,9 +5,11 @@ export default theme => ({
     background: 'white',
     textAlign: 'center',
   },
+
   alignContent: {
     justifyContent: 'center',
   },
+
   imageProfile: {
     border: '2px solid #696969',
     width: '30%',

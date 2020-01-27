@@ -7,7 +7,6 @@ import {
 import LinearProgress from '@material-ui/core/LinearProgress';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import NewsStyles from "./NewsStyles";
-import {array} from "prop-types";
 
 const useStyles = makeStyles(NewsStyles);
 //5454cb1b9be0477fb63a1b9fc15db6eb - API key
