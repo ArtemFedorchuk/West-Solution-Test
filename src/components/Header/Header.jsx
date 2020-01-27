@@ -66,7 +66,7 @@ const Header = () => {
                             <Link to={Routes.NEWS} className={classes.activeLink}>
                                 <IconButton color="inherit">
                                     <PublicIcon className={classes.headerBtn} />
-                                    <span>News</span>
+                                    <span className={classes.span}>News</span>
                                 </IconButton>
                             </Link>
                             <Link to={Routes.CATEGORIES} className={classes.activeLink}>
@@ -76,7 +76,7 @@ const Header = () => {
                             </Link>
                             <Link to={Routes.PROFILE} className={classes.activeLink}>
                                 <IconButton edge="end" color="inherit">
-                                    <span>Profile</span>
+                                    <span className={classes.span}>Profile</span>
                                     <Avatar src={ava} />
                                 </IconButton>
                             </Link>

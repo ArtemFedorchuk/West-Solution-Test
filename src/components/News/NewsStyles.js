@@ -1,4 +1,8 @@
 export default theme => ({
+    root: {
+      position: 'relative',
+        paddingTop: 0,
+    },
     newsTitle: {
         color: '#263238',
         margin: '0 auto',
@@ -9,13 +13,18 @@ export default theme => ({
         flexDirection: 'column',
         justifyContent: 'center',
         background: 'white',
-        padding: 20,
+    },
+    progressLine: {
+        width: '100%',
+        zIndex: 9999,
+        position: 'absolute',
+        top: 3,
     },
     title: {
         width: '80%',
         background: 'rgba(178,235,242, 0.4)',
         fontSize: 25,
-        margin: '0 auto',
+        margin: '50px auto 0px auto',
         padding: '10px 10px',
     },
     description: {

@@ -4,9 +4,10 @@ import {
     Row,
     Column
 } from "../index";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import NewsStyles from "./NewsStyles";
+import {array} from "prop-types";
 
 const useStyles = makeStyles(NewsStyles);
 //5454cb1b9be0477fb63a1b9fc15db6eb - API key
@@ -31,11 +32,10 @@ const News = (props) => {
     }, []);
 
     return (
-        <Container>
+        <Container className={classes.root}>
             <Row>
                 <Column className={classes.newsWrapper}>
-                    <h1 className={classes.newsTitle}>News</h1>
-                    {news ?
+                    {news.length > 0 ?
                         news.map((items, i) => (
                             <div key={i} className={classes.newsWrapper}>
                                <h4 className={classes.title}>{items.title}</h4>
@@ -52,7 +52,8 @@ const News = (props) => {
                                 </div>
                             </div>
                         ))
-                        : (<CircularProgress color="secondary" />)}
+                        : (<LinearProgress color="secondary" className={classes.progressLine} />)
+                    }
                 </Column>
             </Row>
         </Container>

@@ -170,4 +170,7 @@ export default theme => ({
         }),
         marginLeft: 0,
     },
+    span: {
+      fontSize: 18,
+    },
 });
