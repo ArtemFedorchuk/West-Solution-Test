@@ -18,15 +18,17 @@ const Profile = () => {
         <div className={classes.root}>
            <Container  component="main">
              <Row>
-               <Column>
+               <Column style={{margin: 'auto',}}>
                  <img src={profilePhoto} alt="profilePhoto" className={classes.imageProfile}/>
                </Column>
              </Row>
              <Row className={classes.alignContent}>
                <Column>
                  <>
-                  <h3>Fedorchuk Artem</h3>
-                   <p>Junior JavaScript(React) developer</p>
+                  <div className={classes.titleInformation}>
+                    <h3>Fedorchuk Artem</h3>
+                    <p>Junior JavaScript(React) developer</p>
+                  </div>
                    <div>
                      <h4>Контактная информация:</h4>
                      <p>Тел. (моб.): +38 (050) 77 29 006, +38 (063) 51 46 051</p>
