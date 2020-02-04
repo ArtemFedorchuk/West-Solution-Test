@@ -1,4 +1,7 @@
 import React from "react";
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
+import {Redirect} from "react-router-dom";
 import {
   Column,
   Container,
@@ -9,10 +12,17 @@ import profilePhoto from '../../assets/images/profile-photo.jpg';
 import ProfileStyles from "./ProfileStyles";
 import {makeStyles} from "@material-ui/core/styles";
 
+import Routes from "../../constants/routes";
+
 const useStyles = makeStyles(ProfileStyles);
 
-const Profile = () => {
+const Profile = ({
+  userName,
+  password,
+ }) => {
   const classes = useStyles();
+
+  if(userName !== 'admin' && password !== '12345') return <Redirect to={Routes.LOGIN} />;
 
   return(
         <div className={classes.root}>
@@ -51,7 +61,7 @@ const Profile = () => {
                         <p>React (Junior).</p>
                         <p>React Material UI</p>
                         <p>GIT (Командная работа над проектом).</p>
-                        <p>Gitkraken</p>
+                        <p>GitKraken</p>
                         <p>Оптимизация согласно Google PageSpeed.</p>
                         <p>PerfectPixel</p>
                       </div>
@@ -64,4 +74,24 @@ const Profile = () => {
     )
 };
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    userName: state.auth.userName,
+    password: state.auth.password,
+    isAuth: state.auth.isAuth
+  }
+};
+
+export default connect(mapStateToProps, {})(Profile)
+
+Profile.propTypes = {
+  isAuth: PropTypes.bool,
+  userName: PropTypes.string,
+  password: PropTypes.string,
+};
+
+Profile.defaultProps = {
+  isAuth: false,
+  userName: '',
+  password: '',
+};

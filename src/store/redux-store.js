@@ -1,12 +1,10 @@
 import {combineReducers, createStore} from "redux";
-import loginReducer from "./login-reducer";
+import authReducer from "./Auth/reducers";
 
 const reducers = combineReducers({
-    auth: loginReducer,
+    auth: authReducer,
 });
 
 const store = createStore(reducers);
-
-window.store = store;
 
 export default store;

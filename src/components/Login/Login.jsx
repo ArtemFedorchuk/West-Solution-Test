@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 
 import Alert from '@material-ui/lab/Alert';
 import {
@@ -24,12 +23,12 @@ const useStyles = makeStyles(LoginStyles);
 const Login = ({
     isAuth,
     userName,
-    password
+    password,
+    onNameChange,
+    onPasswordChange
 }) => {
     const classes = useStyles();
 
-    const [loginForm, setLogin] = useState('');
-    const [passwordForm, setPassword] = useState('');
     const [isAuthUser, setAuth] = useState(isAuth);
     const [isAlert, setAlert] = useState(false);
 
@@ -41,12 +40,6 @@ const Login = ({
         setTimeout(() =>  setAlert(false), 6000);
     });
 
-    const loginHandler = (e) => {
-        setLogin(e.currentTarget.value)
-    };
-    const passwordHandler = (e) => {
-        setPassword(e.currentTarget.value)
-    };
     const authUserHandler = () => {
         setAuth(true)
     };
@@ -54,12 +47,12 @@ const Login = ({
         setAlert(alertModal)
     };
 
-    if(userName === loginForm && password === passwordForm && isAuthUser) return <Redirect to={Routes.PROFILE} />;
+    if(userName === 'admin' && password === '12345' && isAuthUser) return <Redirect to={Routes.PROFILE} />;
 
     return (
         <Container component="main" maxWidth="xs">
             {isAuthUser ?
-                userName === loginForm && password === passwordForm ? null``
+                userName === 'admin' && password === '12345' ? null``
                     : (
                         isAlert
                     )
@@ -84,7 +77,8 @@ const Login = ({
                             autoComplete="name"
                             autoFocus
                             placeholder="Enter user name"
-                            onChange={loginHandler}
+                            value={userName}
+                            onChange={onNameChange}
                         />
                         <TextField
                             variant="outlined"
@@ -96,7 +90,8 @@ const Login = ({
                             id="password"
                             autoComplete="current-password"
                             placeholder="Enter password"
-                            onChange={passwordHandler}
+                            value={password}
+                            onChange={onPasswordChange}
                         />
                         <Button
                             fullWidth
@@ -157,24 +152,18 @@ const Login = ({
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        userName: state.auth.userName,
-        password: state.auth.password,
-        isAuth: state.auth.isAuth
-    }
-};
-
-export default connect(mapStateToProps, {})(Login);
+export default Login;
 
 Login.propTypes = {
     isAuth: PropTypes.bool,
     userName: PropTypes.string,
-    password: PropTypes.string
+    password: PropTypes.string,
+    onNameChange: PropTypes.func,
+    onPasswordChange: PropTypes.func
 };
 
 Login.defaultProps = {
     isAuth: false,
-    userName: 'admin',
-    password: '12345',
+    userName: '',
+    password: '',
 };
