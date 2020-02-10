@@ -39,26 +39,11 @@ export default theme => ({
   or: {
     color: '#757575',
   },
-  signIn: {
+  reset: {
     margin: theme.spacing(2, 0, 2),
     backgroundColor: '#039be5',
     '&:hover': {
       backgroundColor: '#088be0',
-    },
-  },
-  submitFacebook: {
-    backgroundColor: '#4267B2',
-    color: 'white',
-    margin: theme.spacing(0, 0, 3),
-    '&:hover': {
-      backgroundColor: '#0587c1',
-    },
-  },
-  submitGoogle: {
-    backgroundColor: '#DB4437',
-    margin: theme.spacing(2, 0, 2),
-    '&:hover': {
-      backgroundColor: '#da2012',
     },
   },
   line: {
@@ -68,16 +53,5 @@ export default theme => ({
   },
   activeLink: {
     color: '#1976D2',
-  },
-  alert: {
-   position: 'absolute',
-    top: 10,
-  },
-  visible: {
-    padding: 0,
-    margin: 0,
-    position: 'relative',
-    left: 170,
-    bottom: 50,
   },
 });

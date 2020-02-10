@@ -3,6 +3,7 @@ import {
   SET_USER_PASSWORD
 } from "./actions";
 
+// delete hardcode initialState password and userName
 const initialState = {
   userName: '',
   password: '',

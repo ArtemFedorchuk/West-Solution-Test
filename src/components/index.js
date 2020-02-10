@@ -9,7 +9,10 @@ import Home from "./Home/Home";
 import News from "./News/News";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import LoginContainer from "./Login/LoginContainer";
-
+import SignUp from "./SignUp/SignUp";
+import ResetPassword from "./ResetPassword/ResetPassword";
+import ForgotPassword from "./ForgotPassword/ForgotPassword";
+import Game from "./Game/Game";
 
 export {
     Container,
@@ -23,4 +26,8 @@ export {
     News,
     ErrorPage,
     LoginContainer,
+    SignUp,
+    ResetPassword,
+    ForgotPassword,
+    Game
 }

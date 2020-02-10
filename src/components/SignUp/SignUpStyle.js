@@ -26,7 +26,7 @@ export default theme => ({
   },
   links: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
   },
@@ -69,15 +69,7 @@ export default theme => ({
   activeLink: {
     color: '#1976D2',
   },
-  alert: {
-   position: 'absolute',
-    top: 10,
-  },
-  visible: {
-    padding: 0,
-    margin: 0,
-    position: 'relative',
-    left: 170,
-    bottom: 50,
+  confirmMessage: {
+    textAlign: 'center',
   },
 });

@@ -137,8 +137,11 @@ export default theme => ({
             display: 'none',
         },
     },
-    activeLink: {
+    link: {
         color: '#eeeeee',
+    },
+    activeLink: {
+        background: 'rgba(0,145,234 ,0.1)',
     },
     drawer: {
         width: drawerWidth,

@@ -18,7 +18,7 @@ import Avatar from '@material-ui/core/Avatar';
 import headerStyles from './HeaderStyles';
 
 import ava from '../../assets/images/ava.jpg';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import Routes from "../../constants/routes";
 
 const useStyles = makeStyles(headerStyles);
@@ -31,7 +31,7 @@ const Header = () => {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
                     <div >
-                        <Link to={Routes.HOME} className={classes.activeLink}>
+                        <NavLink to={Routes.HOME} activeClassName={classes.activeLink} className={classes.link}>
                             <IconButton
                                 edge="start"
                                 className={classes.menuButton}
@@ -40,7 +40,7 @@ const Header = () => {
                             >
                                 <HomeIcon fontSize="large"/>
                             </IconButton>
-                        </Link>
+                        </NavLink>
                     </div>
                     <div className={classes.wrapperSearch}>
                         <div className={classes.search}>
@@ -58,28 +58,29 @@ const Header = () => {
                         </div>
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
-                            <Link to={Routes.PROFILE} className={classes.activeLink}>
+                            <NavLink to={Routes.GAME} activeClassName={classes.activeLink} className={classes.link}>
                                 <IconButton color="inherit">
+                                    <span className={classes.span}>Game</span>
                                     <EmojiPeopleIcon className={classes.headerBtn} />
                                 </IconButton>
-                            </Link>
-                            <Link to={Routes.NEWS} className={classes.activeLink}>
+                            </NavLink>
+                            <NavLink to={Routes.NEWS} activeClassName={classes.activeLink} className={classes.link}>
                                 <IconButton color="inherit">
                                     <PublicIcon className={classes.headerBtn} />
                                     <span className={classes.span}>News</span>
                                 </IconButton>
-                            </Link>
-                            <Link to={Routes.CATEGORIES} className={classes.activeLink}>
+                            </NavLink>
+                            <NavLink to="/404" activeClassName={classes.activeLink} className={classes.link}>
                                 <IconButton color="inherit">
                                     <NotificationsIcon />
                                 </IconButton>
-                            </Link>
-                            <Link to={Routes.PROFILE} className={classes.activeLink}>
+                            </NavLink>
+                            <NavLink to={Routes.PROFILE} activeClassName={classes.activeLink} className={classes.link}>
                                 <IconButton edge="end" color="inherit">
                                     <span className={classes.span}>Profile</span>
                                     <Avatar src={ava} />
                                 </IconButton>
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
                 </Toolbar>
