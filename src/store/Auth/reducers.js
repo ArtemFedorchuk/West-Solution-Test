@@ -1,12 +1,9 @@
-import {
-  SET_USER_NAME,
-  SET_USER_PASSWORD
-} from "./actions";
+import { SET_USER_NAME, SET_USER_PASSWORD } from "./actions";
 
-// delete hardcode initialState password and userName
+// TODO: delete hardcoded initialState password and userName
 const initialState = {
-  userName: '',
-  password: '',
+  userName: "",
+  password: "",
   isAuth: false
 };
 

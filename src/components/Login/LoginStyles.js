@@ -1,83 +1,83 @@
 export default theme => ({
   root: {
-    width: 520,
+    width: 520
   },
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   },
   form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
+    width: "100%",
+    marginTop: theme.spacing(1)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 2)
   },
   card: {
     padding: theme.spacing(3),
-    width: '100%',
+    width: "100%"
   },
   title: {
-    textAlign: 'center',
+    textAlign: "center",
     fontWeight: 600,
-    color: '#424242',
+    color: "#424242"
   },
   links: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: 20,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 20
   },
   alignElement: {
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    textAlign: 'center',
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center"
   },
   or: {
-    color: '#757575',
+    color: "#757575"
   },
   signIn: {
     margin: theme.spacing(2, 0, 2),
-    backgroundColor: '#039be5',
-    '&:hover': {
-      backgroundColor: '#088be0',
-    },
+    backgroundColor: "#039be5",
+    "&:hover": {
+      backgroundColor: "#088be0"
+    }
   },
   submitFacebook: {
-    backgroundColor: '#4267B2',
-    color: 'white',
+    backgroundColor: "rgb(66,103,178)",
+    color: "white",
     margin: theme.spacing(0, 0, 3),
-    '&:hover': {
-      backgroundColor: '#0587c1',
-    },
+    "&:hover": {
+      backgroundColor: "#0587c1"
+    }
   },
   submitGoogle: {
-    backgroundColor: '#DB4437',
+    backgroundColor: "#DB4437",
     margin: theme.spacing(2, 0, 2),
-    '&:hover': {
-      backgroundColor: '#da2012',
-    },
+    "&:hover": {
+      backgroundColor: "#da2012"
+    }
   },
   line: {
-    width: '50%',
-    margin: '0 auto',
-    border: '1px solid #eeeeee',
+    width: "50%",
+    margin: "0 auto",
+    border: "1px solid #eeeeee"
   },
   activeLink: {
-    color: '#1976D2',
+    color: "#1976D2"
   },
   alert: {
-   position: 'absolute',
-    top: 10,
+    position: "absolute",
+    top: 10
   },
   visible: {
     padding: 0,
     margin: 0,
-    position: 'relative',
+    position: "relative",
     left: 170,
-    bottom: 50,
-  },
+    bottom: 50
+  }
 });

@@ -1,10 +1,10 @@
-import Container from './Container/Container';
-import Column from './Column/Column';
-import Row from './Row/Row';
-import Login from './Login/Login';
-import Categories from './Categories/Categories';
-import Header from './Header/Header';
-import Profile from './Profile/Profile';
+import Container from "./Container/Container";
+import Column from "./Column/Column";
+import Row from "./Row/Row";
+import Login from "./Login/Login";
+import Categories from "./Categories/Categories";
+import Header from "./Header/Header";
+import Profile from "./Profile/Profile";
 import Home from "./Home/Home";
 import News from "./News/News";
 import ErrorPage from "./ErrorPage/ErrorPage";
@@ -15,19 +15,19 @@ import ForgotPassword from "./ForgotPassword/ForgotPassword";
 import Game from "./Game/Game";
 
 export {
-    Container,
-    Column,
-    Row,
-    Login,
-    Categories,
-    Header,
-    Profile,
-    Home,
-    News,
-    ErrorPage,
-    LoginContainer,
-    SignUp,
-    ResetPassword,
-    ForgotPassword,
-    Game
-}
+  Container,
+  Column,
+  Row,
+  Login,
+  Categories,
+  Header,
+  Profile,
+  Home,
+  News,
+  ErrorPage,
+  LoginContainer,
+  SignUp,
+  ResetPassword,
+  ForgotPassword,
+  Game
+};
