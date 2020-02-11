@@ -47,7 +47,7 @@ const Login = ({
       <Alert variant="filled" severity="error" className={classes.alert}>
         Error, login or password!{" "}
       </Alert>
-    );``
+    );
   }
 
   const handleClickShowPassword = () => {
