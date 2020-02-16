@@ -1,0 +1,38 @@
+$myColor: white;
+
+.title {
+ color: $myColor;
+  text-transform: uppercase;
+}
+
+.container {
+  background: white;
+    h1 {
+      color: black;
+    }
+  .wrapContent {
+    .img {
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px solid black;
+        padding: 5px;
+        margin-left: 30px;
+        box-shadow: 0px 0px 5px black;
+        margin-right: 20px;
+      }
+    }
+    .userInfo {
+      display: flex;
+      flex-direction: column;
+
+      .userStatus {
+        color: black;
+      }
+    }
+    h2 {
+      color: black;
+    }
+  }
+}

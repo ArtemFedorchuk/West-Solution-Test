@@ -63,12 +63,12 @@ const Header = () => {
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <NavLink
-                to={Routes.GAME}
+                to={Routes.USERS}
                 activeClassName={classes.activeLink}
                 className={classes.link}
               >
                 <IconButton color="inherit">
-                  <span className={classes.span}>Game</span>
+                  <span className={classes.span}>Users</span>
                   <EmojiPeopleIcon className={classes.headerBtn} />
                 </IconButton>
               </NavLink>

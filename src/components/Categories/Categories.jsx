@@ -10,7 +10,7 @@ import {
   Home,
   News,
   ErrorPage,
-  Game
+  Users
 } from "../../components";
 
 import CategoriesStyles from "./CategoriesStyles";
@@ -32,7 +32,7 @@ const Categories = () => {
               <Route exact path={Routes.NEWS} component={News} />
               <Route exact path={Routes.PROFILE} component={Profile} />
               <Route exact path={Routes.HOME} component={Home} />
-              <Route exact path={Routes.GAME} component={Game} />
+              <Route exact path={Routes.USERS} component={Users} />
               <Route render={() => <ErrorPage />} />
             </Switch>
           </Column>

@@ -10,5 +10,5 @@ export default {
   PROFILE: '/categories/profile',
   NEWS: '/categories/news',
   HOME: '/categories/home',
-  GAME: '/categories/game',
+  USERS: '/categories/users',
 };

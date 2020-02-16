@@ -5,12 +5,12 @@ import Routes from "../../constants/routes";
 import PropTypes from "prop-types";
 
 const Home = ({ userName, password }) => {
-  if (userName !== 'admin' && password !== '12345')
+  if (userName !== "admin" && password !== "12345")
     return <Redirect to={Routes.LOGIN} />;
 
   return (
     <div>
-      <h1 style={{ color: 'white' }}>Home page</h1>
+      <h1 style={{ color: "white" }}>Home page</h1>
     </div>
   );
 };
@@ -33,6 +33,6 @@ Home.propTypes = {
 
 Home.defaultProps = {
   isAuth: false,
-  userName: '',
-  password: ''
+  userName: "",
+  password: ""
 };

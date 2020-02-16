@@ -29,7 +29,8 @@ const Login = ({
   userName,
   password,
   onNameChange,
-  onPasswordChange
+  onPasswordChange,
+  alertModal
 }) => {
   const classes = useStyles();
 
@@ -37,18 +38,6 @@ const Login = ({
   const [isAlert, setAlert] = useState(false);
   const { handleSubmit, register, errors } = useForm();
   const [values, setValues] = React.useState({ showPassword: false });
-
-  const onSubmit = data => {
-    console.log(data);
-  };
-
-  function alertModal() {
-    return (
-      <Alert variant="filled" severity="error" className={classes.alert}>
-        Error, login or password!{" "}
-      </Alert>
-    );
-  }
 
   const handleClickShowPassword = () => {
     setValues(!values);
@@ -61,9 +50,26 @@ const Login = ({
   const authUserHandler = () => {
     setAuth(true);
   };
-  const handlerAlert = () => {
-    setAlert(alertModal);
+  const handlerAlert = (typeModal, textModal) => {
+    setAlert(alertModal(typeModal, textModal));
   };
+
+  const onSubmit = data => {
+    console.log(data);
+  };
+
+  const signInHandler = (typeModal, textModal) => {
+    authUserHandler();
+    handlerAlert(typeModal, textModal);
+  };
+
+  function alertModal(typeModal, textModal) {
+    return (
+      <Alert variant="filled" severity={typeModal} className={classes.alert}>
+        {textModal}
+      </Alert>
+    );
+  }
 
   if (userName === "admin" && password === "12345" && isAuthUser)
     return <Redirect to={Routes.NEWS} />;
@@ -97,7 +103,7 @@ const Login = ({
               error={!!errors.firstName}
               inputRef={register({
                 required: true,
-                // pattern: /^[A-Za-z]+$/i,
+                pattern: /^[A-Za-z]+$/i,
                 minLength: 4,
                 maxLength: 6
               })}
@@ -135,10 +141,7 @@ const Login = ({
               color="primary"
               className={classes.signIn}
               type="submit"
-              onClick={() => {
-                authUserHandler();
-                handlerAlert();
-              }}
+              onClick={() => signInHandler('error', 'Error, login or password!')}
             >
               Sign In
             </Button>
@@ -150,11 +153,11 @@ const Login = ({
             </Row>
             <>
               <Button
-                // type="submit"
                 fullWidth
                 variant="contained"
                 color="secondary"
                 className={classes.submitGoogle}
+                onClick={() => signInHandler('warning', 'Warnig! not connect to Google')}
               >
                 Sign in with Google
               </Button>
@@ -162,10 +165,10 @@ const Login = ({
 
             <>
               <Button
-                // type="submit"
                 fullWidth
                 variant="contained"
                 className={classes.submitFacebook}
+                onClick={() => signInHandler('warning', 'Warning! not connect to Facebook')}
               >
                 Sign in with Facebook
               </Button>

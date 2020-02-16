@@ -12,7 +12,7 @@ import LoginContainer from "./Login/LoginContainer";
 import SignUp from "./SignUp/SignUp";
 import ResetPassword from "./ResetPassword/ResetPassword";
 import ForgotPassword from "./ForgotPassword/ForgotPassword";
-import Game from "./Game/Game";
+import Users from "./Users/Users";
 
 export {
   Container,
@@ -29,5 +29,5 @@ export {
   SignUp,
   ResetPassword,
   ForgotPassword,
-  Game
+  Users
 };
