@@ -12,7 +12,7 @@ const Users = () => {
     .then(res => {
       const usersData = res.data;
       usersUpdate(usersData)
-    })
+    });
 
   return (
     <Container className='container' >
@@ -41,6 +41,6 @@ const Users = () => {
       </div>
     </Container>
   );
-}
+};
 
 export default Users;

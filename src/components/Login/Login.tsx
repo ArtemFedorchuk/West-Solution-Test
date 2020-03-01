@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import IconButton from "@material-ui/core/IconButton";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import Alert from "@material-ui/lab/Alert";
-
 import Routes from "../../constants/routes";
-
 import { Container, Row, Column } from "../../components";
-
 import {
   Button,
   CssBaseline,
@@ -17,27 +13,33 @@ import {
   Card,
   Typography
 } from "@material-ui/core";
-
 import { makeStyles } from "@material-ui/core/styles";
-
 import LoginStyles from "./LoginStyles";
 
+// @ts-ignore
 const useStyles = makeStyles(LoginStyles);
 
-const Login = ({
+type LoginPropTypes = {
+  isAuth: boolean,
+  userName: string,
+  password: string,
+  onNameChange: () => void,
+  onPasswordChange: () => void
+};
+
+const Login: React.FC<LoginPropTypes> = ({
   isAuth,
   userName,
   password,
   onNameChange,
   onPasswordChange,
-  alertModal
 }) => {
   const classes = useStyles();
 
   const [isAuthUser, setAuth] = useState(isAuth);
   const [isAlert, setAlert] = useState(false);
   const { handleSubmit, register, errors } = useForm();
-  const [values, setValues] = React.useState({ showPassword: false });
+  const [values, setValues] = React.useState( true );
 
   const handleClickShowPassword = () => {
     setValues(!values);
@@ -50,20 +52,22 @@ const Login = ({
   const authUserHandler = () => {
     setAuth(true);
   };
-  const handlerAlert = (typeModal, textModal) => {
+
+  const handlerAlert = (typeModal: any, textModal: string) => {
+    // @ts-ignore
     setAlert(alertModal(typeModal, textModal));
   };
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = (data: any) => {
+    // console.log(data);
   };
 
-  const signInHandler = (typeModal, textModal) => {
+  const signInHandler = (typeModal: any, textModal: string) => {
     authUserHandler();
     handlerAlert(typeModal, textModal);
   };
 
-  function alertModal(typeModal, textModal) {
+  function alertModal(typeModal: any, textModal: string) {
     return (
       <Alert variant="filled" severity={typeModal} className={classes.alert}>
         {textModal}
@@ -78,7 +82,7 @@ const Login = ({
     <Container component="main" maxWidth="xs">
       {isAuthUser
         ? userName === "admin" && password === "12345"
-          ? null``
+          ? null
           : isAlert
         : null}
       <CssBaseline />
@@ -196,17 +200,3 @@ const Login = ({
 };
 
 export default Login;
-
-Login.propTypes = {
-  isAuth: PropTypes.bool,
-  userName: PropTypes.string,
-  password: PropTypes.string,
-  onNameChange: PropTypes.func,
-  onPasswordChange: PropTypes.func
-};
-
-Login.defaultProps = {
-  isAuth: false,
-  userName: "",
-  password: ""
-};
